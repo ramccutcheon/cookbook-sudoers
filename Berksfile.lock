@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "sudoers": {
+      "path": "."
+    },
+    "sudo": {
+      "locked_version": "2.5.3",
+      "git": "git://github.com/opscode-cookbooks/sudo.git",
+      "ref": "d2902b4d6ea6fe2cf175d1921f0cb96b84e089bd"
+    }
+  }
+}

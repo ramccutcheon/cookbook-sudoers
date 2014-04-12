@@ -1,0 +1,22 @@
+# rubocop.yml
+---
+AllCops:
+  Includes:
+    - Gemfile
+    - Berksfile
+    - '**/Rakefile'
+  Excludes:
+    - vendor/**
+
+AlignParameters:
+  Enabled: false
+CyclomaticComplexity:
+  Enabled: false
+Encoding:
+  Enabled: false
+HashSyntax:
+  Enabled: false
+LineLength:
+  Max: 100
+MethodLength:
+  Max: 30
