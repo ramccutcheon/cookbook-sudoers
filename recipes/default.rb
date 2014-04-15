@@ -25,13 +25,21 @@ node.override['authorization']['sudo']['agent_forwarding'] = true
 sudoers = SudoersDataBags.new.get(node['sudoers']['databag'])
 
 sudoers.each do |s|
-  sudo s['id'] do
-    user s['user'] if s['user']
-    group s['group'] if s['group']
-    runas s['runas'] if s['runas']
-    commands [s['commands']].flatten if s['commands']
-    host s['host'] if s['host']
-    nopasswd s['nopasswd'] if s['nopasswd']
-    defaults [s['defaults']].flatten if s['defaults']
+  if s['action'] && s['action'] == 'remove'
+    filename = ::File.join('/etc/sudoers.d', s['id'])
+
+    ::Chef::Log.info "[sudoers] INFO: Removing #{filename}"
+    file filename { action :delete } if ::File.exists?(filename)
+  else
+    ::Chef::Log.info "[sudoers] INFO: Adding sudo for #{s['id']}"
+    sudo s['id'] do
+      user s['user'] if s['user']
+      group s['group'] if s['group']
+      runas s['runas'] if s['runas']
+      commands [s['commands']].flatten if s['commands']
+      host s['host'] if s['host']
+      nopasswd s['nopasswd'] if s['nopasswd']
+      defaults [s['defaults']].flatten if s['defaults']
+    end
   end
 end

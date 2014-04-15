@@ -25,6 +25,7 @@ Create a databag with the relevant contents.  Valid options match sudo cookbook 
 - `runas` - User allowed to sudo to (default: root)
 - `host` - Hostname to allow sudo on
 - `commands` - An array of commands allowed for sudo
+- `action` - Whether to add or remove this sudo access (Default: add). Set to `remove` to delete.
 
 #### Examples:
 
@@ -45,6 +46,13 @@ Create a databag with the relevant contents.  Valid options match sudo cookbook 
   "commands": "/usr/bin/snmpconf"
 }
 ```
+
+This will remove the sudoers file with the named `id`:
+```json
+{
+    "id": "sudouser",
+    "action": "remove"
+}
 
 Contributing
 ------------
