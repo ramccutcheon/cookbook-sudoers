@@ -19,7 +19,7 @@ Usage
 
 Create a databag with the relevant contents.  Valid options match sudo cookbook LWRP:
 
-- `user' - Username (or group if prepended with %) for sudo
+- `user` - Username (or group if prepended with %) for sudo
 - `group` - Group for sudo (automatically prepends %). `user` option trumps this if present.
 - `nopasswd` - Supply a password to invoke sudo (default: false)
 - `runas` - User allowed to sudo to (default: root)
@@ -54,6 +54,7 @@ This will remove the sudoers file with the named `id`:
     "id": "sudouser",
     "action": "remove"
 }
+```
 
 Contributing
 ------------
