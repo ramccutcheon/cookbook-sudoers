@@ -23,8 +23,10 @@ Create a databag with the relevant contents.  Valid options match sudo cookbook 
 - `group` - Group for sudo (automatically prepends %). `user` option trumps this if present.
 - `nopasswd` - Supply a password to invoke sudo (default: false)
 - `runas` - User allowed to sudo to (default: root)
-- `host` - Hostname to allow sudo on
+- `host` - The hostname to allow sudo on (default: All hosts)
 - `commands` - An array of commands allowed for sudo
+- `zone` - The name of a zone where we want this user/group to have sudo. (default: All zones)
+- `action` - Whether to add or remove this sudo access (Default: add). Set to `remove` to delete.
 
 #### Examples:
 
@@ -45,6 +47,13 @@ Create a databag with the relevant contents.  Valid options match sudo cookbook 
   "commands": "/usr/bin/snmpconf"
 }
 ```
+
+This will remove the sudoers file with the named `id`:
+```json
+{
+    "id": "sudouser",
+    "action": "remove"
+}
 
 Contributing
 ------------
