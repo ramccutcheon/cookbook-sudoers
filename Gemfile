@@ -11,3 +11,4 @@ gem 'json',       '<= 1.7.7'  # Chef 11 dependency
 gem 'rake',       '~> 10.2.2'
 gem 'pry'
 gem 'awesome_print'
+gem 'ohai', '~> 6.22'
